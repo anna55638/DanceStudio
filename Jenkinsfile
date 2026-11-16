@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -8,7 +9,10 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                bat 'npm ci'
+                bat '''
+                    call "D:\\Programs\\VS\\Common7\\Tools\\VsDevCmd.bat" -arch=x64 -host_arch=x64
+                    npm ci
+                '''
             }
         }
 
